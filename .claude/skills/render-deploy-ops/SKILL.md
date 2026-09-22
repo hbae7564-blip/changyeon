@@ -43,6 +43,15 @@ git log origin/main..HEAD --oneline   # 로컬에만 있는 커밋 (아직 안 �
 3. 최근 커밋이 배포에 반영됐는지(Render는 push 시 자동 재배포) 확인
 4. 문제가 코드 로직이면 `kakao-skill-server`로, 콘텐츠면 `site-content-update`로 위임
 
-## 빈 저장소(changyeon) 처리
+## changyeon 저장소 — 하네스 설정 백업 절차
 
-용도가 정해지지 않은 빈 저장소다. 사용자가 명확한 목적을 알려주기 전까지 임의로 초기 구조를 만들지 않는다 — 목적을 먼저 확인한다.
+`changyeon` 저장소는 이 워크스페이스 루트(`C:\Users\wuenw\Desktop\claude`)의 `.claude/`(agents/skills)와 `CLAUDE.md`를 백업하는 용도로 확정됐다. 이 두 파일/폴더는 다른 3개 git 저장소 어디에도 속하지 않으므로, 수정한 뒤 그대로 두면 노트북 문제 시 유실된다.
+
+**"하네스 설정 백업해줘" 요청을 받으면:**
+1. 루트의 `.claude/agents/`, `.claude/skills/`, `CLAUDE.md`를 `changyeon/` 폴더 안 동일 경로에 덮어쓰기 복사 (원본 3개 저장소 내부 파일은 절대 건드리지 않는다)
+2. `changyeon` 폴더에서 `git status`로 실제 변경분 확인
+3. 무엇이 바뀌었는지 알아볼 수 있는 커밋 메시지로 커밋 (예: "QA 에이전트 추가 반영")
+4. `git push`
+5. `changyeon/README.md`의 설명이 최신 구성과 어긋나면 함께 갱신 (에이전트/스킬 개수, 복구 절차)
+
+**자동 동기화가 아님을 항상 인지한다**: 루트 설정을 고친 직후 자동으로 `changyeon`에 반영되지 않는다. 코드/스킬을 수정하는 작업(에이전트 추가, 오케스트레이터 수정 등) 마지막 단계에 이 백업 절차를 습관적으로 제안한다.

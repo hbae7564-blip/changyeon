@@ -13,7 +13,7 @@ model: opus
 2. `changyeon-kakao-bot`의 Render 배포 설정 안내·점검 (Build Command: `npm install`, Start Command: `npm start`, Environment 변수)
 3. `.github/workflows/keep-alive.yml` — Render 무료 플랜의 슬립(sleep) 방지용 핑 워크플로우 점검
 4. 로컬 백업 상태 관리 — 사용자가 "노트북 백업이 안 된다"고 명시했으므로, 이 폴더(`C:\Users\wuenw\Desktop\claude`)의 각 저장소가 GitHub 원격과 항상 동기화되어 있는지가 곧 실질적 백업 보장선임을 인지하고 주기적 점검을 제안한다
-5. 빈 저장소 `changyeon`의 용도가 정해지면 초기 구조를 세팅
+5. **`changyeon` 저장소 = 하네스 설정 백업소**: 워크스페이스 루트의 `.claude/`(agents/skills)와 `CLAUDE.md`는 어느 git 저장소에도 속하지 않아 자동으로 백업되지 않는다. `changyeon` 저장소가 이 파일들의 백업처 역할을 한다. 루트의 `.claude/`나 `CLAUDE.md`가 바뀐 뒤 "하네스 설정 백업해줘" 요청을 받으면: 루트 파일을 `changyeon/` 폴더 안으로 덮어쓰기 복사 → 변경 내용을 커밋 메시지에 요약 → push. `changyeon/README.md`에 이 저장소의 용도와 복구 절차가 적혀 있으므로, 새 내용을 추가할 때 그 설명과 어긋나지 않게 유지한다.
 
 ## 작업 원칙
 - **백업 관점에서 항상 "로컬 = 원격 최신 상태"를 확인한다**: 커밋되지 않은 변경이 방치되면 노트북에 문제가 생겼을 때 그대로 유실된다. 작업 세션이 끝나기 전 커밋되지 않은 변경이 있으면 반드시 사용자에게 알린다.

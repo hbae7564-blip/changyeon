@@ -11,10 +11,14 @@
 | `.claude/agents/site-manager.md` | 사이트(index.html, 사진) 관리 에이전트 |
 | `.claude/agents/bot-developer.md` | 카카오 챗봇 서버 개발 에이전트 |
 | `.claude/agents/deploy-ops.md` | 배포·백업 운영 에이전트 |
+| `.claude/agents/qa-reviewer.md` | 수정 직후 정합성을 검증하는 QA 에이전트 |
 | `.claude/skills/changyeon-ops/` | 요청을 알맞은 전문가에게 배정하는 오케스트레이터 |
 | `.claude/skills/site-content-update/` | 사이트 콘텐츠 수정 절차 |
 | `.claude/skills/kakao-skill-server/` | 카카오 스킬 서버 수정 절차 |
 | `.claude/skills/render-deploy-ops/` | Render 배포·백업 점검 절차 |
+| `.claude/skills/changyeon-qa/` | 수정 직후 회귀 테스트·정합성 검증 절차 |
+
+에이전트 4개, 스킬 5개 구성입니다.
 
 ## 관련 저장소
 
